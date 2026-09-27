@@ -20,7 +20,6 @@ function nasaLocations() {
                 centerSection.classList.add('center-card')
 
 
-
                 //creating the eleents as we pull them from the DOM
                 const centerHeading = document.createElement('h3')
                 centerHeading.innerText = result.center
