@@ -3,7 +3,7 @@
 document.querySelector('#return').addEventListener('click', nasaLocations)
 
 function nasaLocations() {
-    const url = `https://data.nasa.gov/docs/legacy/gvk9-iz74.json`
+    const url = `https://cors.io/?url=https://data.nasa.gov/docs/legacy/gvk9-iz74.json`
 
     fetch(url)
         .then(response => response.json())
@@ -11,10 +11,11 @@ function nasaLocations() {
             console.log(data)
 
             const centerResults = document.querySelector('#display')
+            const getData = JSON.parse(data.body)
 
             //First API
 
-            data.forEach(result => {
+            getData.forEach(result => {
                 //establishing the secton for each piece of piulled data
                 const centerSection = document.createElement('section')
                 centerSection.classList.add('center-card')
@@ -34,7 +35,7 @@ function nasaLocations() {
                 zipcode.innerText = 'Zip Code: ' + result.zipcode
 
 
-                //appendding the created & pulled elements to its section 
+                //appending the created & pulled elements to its section 
                 centerSection.appendChild(centerHeading)
                 centerSection.appendChild(city)
                 centerSection.appendChild(state)
